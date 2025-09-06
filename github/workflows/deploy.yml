@@ -1,0 +1,23 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main   # faqat main branch ga push bo‘lganda ishlaydi
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0.0
+        with:
+          publish-dir: ./
+          production-deploy: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ nfp_mjcxvobaRBpyCxtA62cgdMabz1kaqe5N6cc9 }}
+          NETLIFY_SITE_ID: ${{ 2616466c-9fff-4d61-8e35-0a0016722ca4 }}
